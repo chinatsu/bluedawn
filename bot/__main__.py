@@ -11,6 +11,7 @@ description = """
 initial_extensions = [
     'cogs.hello',
     'cogs.choice',
+    'cogs.fortune',
 ]
 
 def _prefix_callable(bot, msg):
