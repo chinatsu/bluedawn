@@ -1,6 +1,8 @@
 from discord.ext import commands
 import discord
 import random
+from datetime import timezone
+import datetime
 
 greetings = ["ey", "eyyyy", "hi"]
 
@@ -26,6 +28,11 @@ class Hello(commands.Cog):
         else:
             reply = random.choice(greetings)
         await ctx.send(f'{reply} {member.name}')
+
+    @commands.command(name="ping")
+    async def ping(self, ctx):
+        await ctx.send(f'Pong!')
+        
 
 def setup(bot):
     bot.add_cog(Hello(bot))
