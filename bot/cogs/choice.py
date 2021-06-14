@@ -7,7 +7,7 @@ greetings = ["ey", "eyyyy", "hi"]
 class Choice(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.delimiters = [", ", ",", ";", "|"]
+        self.delimiters = [" or ", " | ", "; ", ", ", ",", ";", "|"]
 
     def split_choices(self, msg):
         for delimiter in self.delimiters:
