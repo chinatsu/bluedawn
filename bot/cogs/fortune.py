@@ -15,7 +15,7 @@ class Fortune(commands.Cog):
         return date.today().toordinal() + user_id
         
     @commands.command(name="fortune", aliases=["f"])
-    async def hello(self, ctx):
+    async def fortune(self, ctx):
         member = ctx.author
         seed = self.get_seed(member.id)
         random.seed(seed)

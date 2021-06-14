@@ -18,7 +18,7 @@ class Hello(commands.Cog):
                 msg = msg.removeprefix(prefix)
         return msg
 
-    @commands.command(name="hello", aliases=["ey"])
+    @commands.command(name="hello", aliases=["ey", "oi", "whatup"])
     async def hello(self, ctx, *, member: discord.Member = None):
         member = member or ctx.author
         message = self.get_message(ctx)
@@ -31,7 +31,12 @@ class Hello(commands.Cog):
 
     @commands.command(name="ping")
     async def ping(self, ctx):
-        await ctx.send(f'Pong!')
+        await ctx.send('Pong!')
+
+    @commands.command(name="whoami")
+    async def whoami(self, ctx):
+        user = ctx.message.author
+        await ctx.send(f'You are {user.name} ({user.id})')
         
 
 def setup(bot):

@@ -12,6 +12,7 @@ initial_extensions = [
     'cogs.hello',
     'cogs.choice',
     'cogs.fortune',
+    'cogs.admin',
 ]
 
 def _prefix_callable(bot, msg):

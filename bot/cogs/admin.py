@@ -1,0 +1,51 @@
+from discord.ext import commands
+import discord
+from .util import checks
+
+FAIL = '\N{LOUDLY CRYING FACE}'
+OK = '\N{SLIGHTLY SMILING FACE}'
+
+
+class Admin(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+
+    def format_module(self, module):
+        return f"cogs.{module}"
+
+    @commands.command(hidden=True, name="load_module", aliases=["load"])
+    @checks.is_owner()
+    async def load(self, ctx, *, module):
+        try:
+            self.bot.load_extension(self.format_module(module))
+        except Exception as e:
+            await ctx.send(FAIL)
+            await ctx.send('{}: {}'.format(type(e).__name__, e))
+        else:
+            await ctx.send(OK)
+
+    @commands.command(hidden=True, name="unload_module", aliases=["unload"])
+    @checks.is_owner()
+    async def unload(self, ctx, *, module):
+        try:
+            self.bot.unload_extension(self.format_module(module))
+        except Exception as e:
+            await ctx.send(FAIL)
+            await ctx.send('{}: {}'.format(type(e).__name__, e))
+        else:
+            await ctx.send(OK)
+
+    @commands.command(name='reload_module', hidden=True, aliases=["reload"])
+    @checks.is_owner()
+    async def _reload(self, ctx, *, module):
+        try:
+            self.bot.unload_extension(self.format_module(module))
+            self.bot.load_extension(self.format_module(module))
+        except Exception as e:
+            await ctx.send(FAIL)
+            await ctx.send('{}: {}'.format(type(e).__name__, e))
+        else:
+            await ctx.send(OK)
+
+def setup(bot):
+    bot.add_cog(Admin(bot))
