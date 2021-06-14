@@ -13,6 +13,7 @@ initial_extensions = [
     'cogs.choice',
     'cogs.fortune',
     'cogs.admin',
+    'cogs.whois'
 ]
 
 def _prefix_callable(bot, msg):
@@ -21,7 +22,10 @@ def _prefix_callable(bot, msg):
 
 class Bluedawn(commands.Bot):
     def __init__(self):
-        super().__init__(command_prefix=_prefix_callable, description=description)
+        intents = discord.Intents.default()
+        intents.presences = True
+        intents.members = True  
+        super().__init__(command_prefix=_prefix_callable, description=description, intents=intents)
         for ext in initial_extensions:
             try:
                 self.load_extension(ext)

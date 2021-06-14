@@ -32,11 +32,6 @@ class Hello(commands.Cog):
     @commands.command(name="ping")
     async def ping(self, ctx):
         await ctx.send('Pong!')
-
-    @commands.command(name="whoami")
-    async def whoami(self, ctx):
-        user = ctx.message.author
-        await ctx.send(f'You are {user.name} ({user.id})')
         
 
 def setup(bot):
