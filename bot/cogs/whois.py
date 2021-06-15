@@ -8,6 +8,7 @@ from datetime import datetime
 def format_date(d):
     return d.strftime("%a %d. %B %Y, %H:%M UTC")
 
+
 class Whois(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -24,19 +25,30 @@ class Whois(commands.Cog):
         if user.bot:
             e.description = "Bot"
         if user.premium_since:
-            e.add_field(name="Boosted server", value=format_date(user.premium_since), inline=True)
+            e.add_field(
+                name="Boosted server",
+                value=format_date(user.premium_since),
+                inline=True,
+            )
         for activity in user.activities:
             if activity.type == discord.ActivityType.listening:
-                e.add_field(name="Listening to", value=f"[{activity.artist} - {activity.title}](https://open.spotify.com/track/{activity.track_id})", inline=True)
+                e.add_field(
+                    name="Listening to",
+                    value=f"[{activity.artist} - {activity.title}](https://open.spotify.com/track/{activity.track_id})",
+                    inline=True,
+                )
             if activity.type == discord.ActivityType.playing:
                 e.add_field(name="Playing", value=activity.name, inline=True)
             if activity.type == discord.ActivityType.streaming:
-                e.add_field(name="Streaming", value=f"[{activity.game} ({activity.name})]({activity.url})", inline=True)
+                e.add_field(
+                    name="Streaming",
+                    value=f"[{activity.game} ({activity.name})]({activity.url})",
+                    inline=True,
+                )
             if activity.type == discord.ActivityType.custom:
                 e.add_field(name="Playing?", value=activity.name, inline=True)
         return e
 
-        
     @commands.command(name="whois")
     async def whois(self, ctx, *, target: discord.Member = None):
         member = target or ctx.author
@@ -47,7 +59,7 @@ class Whois(commands.Cog):
 
         embed = self.whoisembed(member, name)
         await ctx.send(embed=embed)
-        
+
 
 def setup(bot):
     bot.add_cog(Whois(bot))

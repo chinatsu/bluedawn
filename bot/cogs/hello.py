@@ -6,6 +6,7 @@ import datetime
 
 greetings = ["ey", "eyyyy", "hi"]
 
+
 class Hello(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -27,12 +28,12 @@ class Hello(commands.Cog):
             reply = "hello"
         else:
             reply = random.choice(greetings)
-        await ctx.send(f'{reply} {member.name}')
+        await ctx.send(f"{reply} {member.name}")
 
     @commands.command(name="ping")
     async def ping(self, ctx):
-        await ctx.send('Pong!')
-        
+        await ctx.send("Pong!")
+
 
 def setup(bot):
     bot.add_cog(Hello(bot))

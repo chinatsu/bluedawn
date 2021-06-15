@@ -4,6 +4,7 @@ import random
 
 greetings = ["ey", "eyyyy", "hi"]
 
+
 class Choice(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -18,7 +19,8 @@ class Choice(commands.Cog):
     async def choose(self, ctx, *, choices):
         choices = self.split_choices(choices)
         choice = random.choice(choices)
-        await ctx.send(f'ganesh says: {choice}')
+        await ctx.send(f"ganesh says: {choice}")
+
 
 def setup(bot):
     bot.add_cog(Choice(bot))

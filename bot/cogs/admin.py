@@ -2,8 +2,8 @@ from discord.ext import commands
 import discord
 from .util import checks
 
-FAIL = '\N{LOUDLY CRYING FACE}'
-OK = '\N{SLIGHTLY SMILING FACE}'
+FAIL = "\N{LOUDLY CRYING FACE}"
+OK = "\N{SLIGHTLY SMILING FACE}"
 
 
 class Admin(commands.Cog):
@@ -20,7 +20,7 @@ class Admin(commands.Cog):
             self.bot.load_extension(self.format_module(module))
         except Exception as e:
             await ctx.send(FAIL)
-            await ctx.send('{}: {}'.format(type(e).__name__, e))
+            await ctx.send("{}: {}".format(type(e).__name__, e))
         else:
             await ctx.send(OK)
 
@@ -31,11 +31,11 @@ class Admin(commands.Cog):
             self.bot.unload_extension(self.format_module(module))
         except Exception as e:
             await ctx.send(FAIL)
-            await ctx.send('{}: {}'.format(type(e).__name__, e))
+            await ctx.send("{}: {}".format(type(e).__name__, e))
         else:
             await ctx.send(OK)
 
-    @commands.command(name='reload_module', hidden=True, aliases=["reload"])
+    @commands.command(name="reload_module", hidden=True, aliases=["reload"])
     @checks.is_owner()
     async def _reload(self, ctx, *, module):
         try:
@@ -43,9 +43,10 @@ class Admin(commands.Cog):
             self.bot.load_extension(self.format_module(module))
         except Exception as e:
             await ctx.send(FAIL)
-            await ctx.send('{}: {}'.format(type(e).__name__, e))
+            await ctx.send("{}: {}".format(type(e).__name__, e))
         else:
             await ctx.send(OK)
+
 
 def setup(bot):
     bot.add_cog(Admin(bot))
