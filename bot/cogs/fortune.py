@@ -5,7 +5,7 @@ import json
 from datetime import date
 
 
-fortunes = ["v good", "good", "neutral", "bad", "v bad"]
+fortunes = ["v good", "good", "p good", "neutral", "p bad", "bad", "v bad"]
 
 
 class Fortune(commands.Cog):
@@ -21,7 +21,7 @@ class Fortune(commands.Cog):
         seed = self.get_seed(member.id)
         random.seed(seed)
         fortune = random.choice(fortunes)
-        await ctx.send(f"ganesh says your fortune today is **{fortune}**")
+        await ctx.send(f"{self.bot.name} says: your fortune today is **{fortune}**")
 
 
 def setup(bot):

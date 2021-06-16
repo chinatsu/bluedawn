@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import traceback
 import sys
-from secret import TOKEN
+from secret import TOKEN, NAME
 
 description = """
     I am a bot!
@@ -14,6 +14,7 @@ initial_extensions = [
     "cogs.fortune",
     "cogs.admin",
     "cogs.whois",
+    "cogs.eightball",
 ]
 
 
@@ -23,13 +24,14 @@ def _prefix_callable(bot, msg):
 
 
 class Bluedawn(commands.Bot):
-    def __init__(self):
+    def __init__(self, name):
         intents = discord.Intents.default()
         intents.presences = True
         intents.members = True
         super().__init__(
             command_prefix=_prefix_callable, description=description, intents=intents
         )
+        self.name = name
         for ext in initial_extensions:
             try:
                 self.load_extension(ext)
@@ -41,5 +43,5 @@ class Bluedawn(commands.Bot):
         print(f"Logged on as {self.user}")
 
 
-client = Bluedawn()
+client = Bluedawn(NAME)
 client.run(TOKEN)

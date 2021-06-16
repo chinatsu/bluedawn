@@ -19,7 +19,7 @@ class Choice(commands.Cog):
     async def choose(self, ctx, *, choices):
         choices = self.split_choices(choices)
         choice = random.choice(choices)
-        await ctx.send(f"ganesh says: {choice}")
+        await ctx.send(f"{self.bot.name} says: {choice}")
 
 
 def setup(bot):
