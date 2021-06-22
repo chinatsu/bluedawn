@@ -15,6 +15,8 @@ class Admin(commands.Cog):
     @commands.command(hidden=True, name="load_module", aliases=["load"])
     @checks.is_owner()
     async def load(self, ctx, *, module):
+        """Loads a module, admin only
+        """
         try:
             self.bot.load_extension(self.format_module(module))
         except Exception as e:
@@ -26,6 +28,8 @@ class Admin(commands.Cog):
     @commands.command(hidden=True, name="unload_module", aliases=["unload"])
     @checks.is_owner()
     async def unload(self, ctx, *, module):
+        """Unloads a module, admin only
+        """
         try:
             self.bot.unload_extension(self.format_module(module))
         except Exception as e:
@@ -36,7 +40,9 @@ class Admin(commands.Cog):
 
     @commands.command(name="reload_module", hidden=True, aliases=["reload"])
     @checks.is_owner()
-    async def _reload(self, ctx, *, module):
+    async def reload(self, ctx, *, module):
+        """Reloads a module, admin only
+        """
         try:
             self.bot.unload_extension(self.format_module(module))
             self.bot.load_extension(self.format_module(module))

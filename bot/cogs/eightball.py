@@ -32,6 +32,8 @@ class EightBall(commands.Cog):
 
     @commands.command(name="8ball", aliases=["8"])
     async def fortune(self, ctx):
+        """Provides an answer for your question.
+        """
         response = random.choice(responses)
         await ctx.send(f"{self.bot.name} says: **{response}**")
 

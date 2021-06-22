@@ -41,6 +41,8 @@ class Identity(commands.Cog):
 
     @commands.command(name="identity")
     async def identity(self, ctx):
+        """Generates a random identity for the day.
+        """
         seed = self.get_seed(ctx.author.id)
         random.seed(seed)
         identity = self.get_identity()

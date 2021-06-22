@@ -16,6 +16,14 @@ class Choice(commands.Cog):
 
     @commands.command(name="choice", aliases=["choose", "decide"])
     async def choose(self, ctx, *, choices):
+        """Provided a list of choices, the bot will choose for you.
+        The list can be delimited a number of ways:
+            a, b or c
+            a | b | c
+            a, b, c
+            a; b; c
+        are all equivalent.
+        """
         choices = self.split_choices(choices)
         choice = random.choice(choices)
         await ctx.send(f"{self.bot.name} says: {choice}")

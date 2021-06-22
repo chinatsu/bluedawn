@@ -14,6 +14,7 @@ class Source(commands.Cog):
         To display the source code of a subcommand you can separate it by
         periods, e.g. tag.create for the create subcommand of the tag command
         or by spaces.
+        From https://github.com/Rapptz/RoboDanny/blob/rewrite/cogs/meta.py#L344-L382
         """
         source_url = "https://github.com/chinatsu/bluedawn"
         branch = "main"

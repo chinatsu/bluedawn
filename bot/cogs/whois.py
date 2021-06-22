@@ -11,6 +11,9 @@ class Whois(commands.Cog):
 
     @commands.command(name="whois")
     async def whois(self, ctx, *, target: discord.Member = None):
+        """Displays info about a member on the server.
+        Requesting to view this bot will show the current version and git hash also.
+        """
         member = target or ctx.author
         name = member.display_name
         if member.id == self.bot.user.id:

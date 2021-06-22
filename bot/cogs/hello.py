@@ -20,6 +20,9 @@ class Hello(commands.Cog):
 
     @commands.command(name="hello", aliases=["ey", "oi", "whatup"])
     async def hello(self, ctx, *, member: discord.Member = None):
+        """Says hello to you, or to another member!
+        Invoking the command with any of the aliases will spice up the greeting.
+        """
         member = member or ctx.author
         message = self.get_message(ctx)
         if message == "hello":
@@ -30,6 +33,8 @@ class Hello(commands.Cog):
 
     @commands.command(name="ping")
     async def ping(self, ctx):
+        """Responds to your ping with a pong!
+        """
         await ctx.send("Pong!")
 
 

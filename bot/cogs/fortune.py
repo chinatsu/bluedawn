@@ -14,6 +14,8 @@ class Fortune(commands.Cog):
 
     @commands.command(name="fortune", aliases=["f"])
     async def fortune(self, ctx):
+        """Generates a random fortune for the day.
+        """
         member = ctx.author
         seed = self.get_seed(member.id)
         random.seed(seed)
