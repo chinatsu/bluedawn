@@ -1,9 +1,6 @@
 from discord.ext import commands
-import discord
 import random
-import json
 from datetime import date
-
 
 fortunes = ["v good", "good", "p good", "neutral", "p bad", "bad", "v bad"]
 

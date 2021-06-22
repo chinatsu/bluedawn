@@ -15,6 +15,7 @@ initial_extensions = [
     "cogs.admin",
     "cogs.whois",
     "cogs.eightball",
+    "cogs.identity",
 ]
 
 
