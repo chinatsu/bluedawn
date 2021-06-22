@@ -1,21 +1,18 @@
 from discord.ext import commands
 import random
 from datetime import date
+from yaml import load, Loader
 
 
 def fetch_adjectives():
-    with open("bot/cogs/resources/adjectives.csv") as f:
-        text = f.read().strip()
-        adjectives = text.split(",")
-
+    with open("bot/cogs/resources/adjectives.yaml") as f:
+        adjectives = load(f, Loader=Loader)
     return adjectives
 
 
 def fetch_nouns():
-    with open("bot/cogs/resources/nouns.csv") as f:
-        text = f.read().strip()
-        nouns = text.split(",")
-
+    with open("bot/cogs/resources/nouns.yaml") as f:
+        nouns = load(f, Loader=Loader)
     return nouns
 
 
@@ -31,11 +28,13 @@ class Identity(commands.Cog):
     def get_identity(self):
         identity = []
 
+        adjectives = []
         for _ in range(random.randint(1, 3)):
             choice = random.choice(self.adjectives)
             if choice in identity:
                 choice = random.choice(self.adjectives)
-            identity.append(choice)
+            adjectives.append(choice)
+        identity.append(", ".join(adjectives))
         identity.append(random.choice(self.nouns))
 
         return " ".join(identity)
