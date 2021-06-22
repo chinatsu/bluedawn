@@ -1,5 +1,4 @@
 from discord.ext import commands
-import discord
 import random
 
 greetings = ["ey", "eyyyy", "hi"]

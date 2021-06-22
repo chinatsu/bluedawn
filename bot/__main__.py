@@ -16,6 +16,7 @@ initial_extensions = [
     "cogs.whois",
     "cogs.eightball",
     "cogs.identity",
+    "cogs.source",
 ]
 
 

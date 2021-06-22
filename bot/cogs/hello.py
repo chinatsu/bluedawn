@@ -12,7 +12,6 @@ class Hello(commands.Cog):
         self.bot = bot
 
     def get_message(self, ctx):
-        user_id = self.bot.user.id
         msg = ctx.message.content
         for prefix in self.bot.command_prefix(self.bot, None):
             if msg.startswith(prefix):
@@ -23,7 +22,6 @@ class Hello(commands.Cog):
     async def hello(self, ctx, *, member: discord.Member = None):
         member = member or ctx.author
         message = self.get_message(ctx)
-        print(message)
         if message == "hello":
             reply = "hello"
         else:

@@ -1,5 +1,4 @@
 from discord.ext import commands
-import discord
 from .util import checks
 
 FAIL = "\N{LOUDLY CRYING FACE}"
