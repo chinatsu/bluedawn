@@ -39,7 +39,7 @@ class Identity(commands.Cog):
 
         return " ".join(identity)
 
-    @commands.command(name="identity")
+    @commands.command(name="identity", aliases=["i", "id"])
     async def identity(self, ctx):
         """Generates a random identity for the day.
         """

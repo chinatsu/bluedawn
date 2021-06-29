@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bluedawn"
-version = "0.7.1"
+version = "0.7.2"
 description = "a discord bot"
 authors = ["Kent D <lolexplode@gmail.com>"]
 
