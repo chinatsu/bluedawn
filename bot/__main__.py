@@ -17,6 +17,7 @@ initial_extensions = [
     "cogs.eightball",
     "cogs.identity",
     "cogs.source",
+    "cogs.anime",
 ]
 
 

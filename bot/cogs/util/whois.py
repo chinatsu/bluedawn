@@ -8,7 +8,7 @@ def format_date(d):
 def embed(user, name):
     e = discord.Embed(title=name, colour=user.colour)
     e.set_footer(text=f"{user.name}#{user.discriminator} ({user.id})")
-    e.set_image(url=user.avatar_url)
+    e.set_image(url=user.display_avatar.url)
     e.add_field(name="Status", value=user.status, inline=True)
     e.add_field(name="Registered", value=format_date(user.created_at), inline=True)
     e.add_field(name="Joined", value=format_date(user.joined_at), inline=True)
